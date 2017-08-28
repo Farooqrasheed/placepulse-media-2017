@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title><%= title%></title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title><%= title%></title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.12/css/jquery.dataTables.min.css">
+    <link rel="stylesheet" href="../css/homepage.css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    <script type="text/javascript" src="https://cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js"></script>
+
+
+</head>
+
+<body>
+<% include navbar.ejs%>
+<div class="content">
+    <p class="title" id="author">Any Place you love <br>is world to you</p>
+    <p align="center" style="padding-bottom: 10px">-Oscar Wilde-</p>
+    <form id="index-form" method="get" action="/States" >
+        <select  class="form-control" name=states id="dd1" required>
+            <option value="">-</option>
+            <% for(var i=0; i<data.length; i++){%>
+            <option id="statename" value="<%=data[i].City_Name%>"><%=data[i].City_Name%></option>
+            <%}%>
+        </select>
+        <br>
+        <button type="submit" id="submitBtn">Submit</button>
+    </form>
+</div>
+</body>
+</html>

@@ -1,0 +1,12 @@
+*{
+    font-family: Montserrat;
+}
+.navbar-brand
+{
+    font-family: Bungee;
+    font-size: 1.5em;
+}
+
+body{
+    position: inherit;
+}

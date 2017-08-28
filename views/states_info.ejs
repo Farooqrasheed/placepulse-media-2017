@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title><%= title%></title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title><%= title%></title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.12/css/jquery.dataTables.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="../css/stattes_info.css">
+
+    <script type="text/javascript" src="https://cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js"></script>
+
+</head>
+<body>
+<% include navbar.ejs%>
+
+<div class="wrapper1">
+    <table class="table table-bordered table-hover" id="comp1">
+        <tbody>
+        <tr>
+            <th>State Name</th>
+            <td><%=data.g%></td>
+            </tr>
+        <tr>
+            <th>Population</th>
+            <td><%=data.h%></td>
+            </tr>
+        <tr>
+            <th>Married Population</th>
+            <td><%=data.j%></td>
+            </tr>
+        <tr>
+            <th>Unemployment Rate</th>
+            <td><%=data.k%></td>
+            </tr>
+        <tr>
+            <th>Median Age</th>
+            <td><%=data.l%></td>
+            </tr>
+        <tr>
+            <th>Violent Crime
+                <a> <span class="glyphicon glyphicon-question-sign" data-toggle="modal" data-target="#vcrime"></span></a>
+
+                <!-- Modal -->
+                <div id="vcrime" class="modal fade" role="dialog">
+                    <div class="modal-dialog">
+
+                        <!-- Modal content-->
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                <h3 class="modal-title"><strong>Understanding Violent Crime</strong></h3>
+                            </div>
+                            <div class="modal-body">
+                                <p>Violent crime on a scale from 1 (low crime) to 100(max crime). Violent crime is composed of four offenses: murder and nonnegligent manslaughter, forcible rape, robbery, and aggravated assault. This is relative to US average violent crime.</p>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                            </div>
+                        </div>
+
+                    </div>
+                </div></th>
+            <td><%=data.m%></td>
+        </tr>
+        </tbody>
+    </table>
+
+</div>
+
+</body>
+</html>

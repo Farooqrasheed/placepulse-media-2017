@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:font-family="http://www.w3.org/1999/xhtml" xmlns:color="http://www.w3.org/1999/xhtml"
+      xmlns:margin-top="http://www.w3.org/1999/xhtml" xmlns: xmlns: xmlns: xmlns:>
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title><%title%></title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.12/css/jquery.dataTables.min.css">
+    <link rel="stylesheet" href="../css/sentiment.css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="http://canvasjs.com/assets/script/canvasjs.min.js"></script>
+
+
+    <script type="text/javascript" src="https://cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js"></script>
+<!--//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// !-->
+    <script type="text/javascript">
+
+        window.onchange = function () {
+            var selectBox = document.getElementById("dd1");
+
+            var selectedValue = selectBox.options[selectBox.selectedIndex].value;
+            var cityName = selectBox.options[selectBox.selectedIndex].innerHTML;
+
+            console.log("ID: " + selectedValue);
+            console.log("NAME: " + cityName);
+            myobj = {g:'', h:'',j:''};
+            <%for ( i=0;i<data.length;i++){%>
+                if(cityName == '<%=data[i].Name%>') {
+                    myobj.g = '<%=data[i].pos_sent%>';
+                    myobj.h = '<%= data[i].neg_sent%>';
+                    myobj.j = '<%= data[i].neut_sent%>';
+                }
+                    <%}%>
+            var chart = new CanvasJS.Chart("chartContainer", {
+                theme: "theme3",//theme1
+                backgroundColor: "rgba(	228, 228, 255,.5)",
+                title:{
+                    text: cityName,
+                    FontColor: "orange"
+                },
+                animationEnabled: true,   // change to true
+                legend:{
+                    verticalAlign: "bottom",
+                    horizontalAlign: "center"
+                },
+                data: [
+                    {
+
+                        // Change type to "bar", "area", "spline", "pie",etc.
+                        type: "pie",
+                        indexLabelFontColor: "black",
+                        toolTipContent: "{indexLabel}: {y}%",
+                        dataPoints: [
+                            {color: "#73C6B6", indexLabel: "Positive ",  y: myobj.g  },
+                            {color: "#C0392B" ,indexLabel: "Negative ", y: myobj.h},
+                            {color: "#1976D2", indexLabel: "Neutral ", y: myobj.j}
+                        ]
+                    }
+                ]
+            });
+            chart.render();
+        }
+    </script>
+    <!--</script>-->
+    <style>
+       #chartContainer{
+            width: 35%;
+            Height: 35%;
+        }
+    </style>
+   </head>
+
+<body>
+<%include navbar.ejs%>
+    <p class="quote">  If it’s going to be a world with no time for sentiment,<br> it’s not a world that I want to live in.</p>
+<p align="center" style=" font-weight: bold; color:white;margin-top: 3px; font-family: Montserrat;font-size: 1em;  text-shadow: 2px 2px rgba(0,0,0,0.5);">-Christopher Isherwood-</p>
+<form class="form-group" method="get" action="/sentiment_analysis">
+    <select id="dd1">
+        <option>-</option>
+        <% for(var i=0; i<data.length; i++){%>
+        <option value="<%=data[i].Name%>" name="city"><%=data[i].Name%></option>
+        <%}%>
+    </select>
+</form>
+
+    <div id="chartContainer" style="height: 300px; width: 100%; background-color: transparent"></div>
+
+
+
+</body>
+
+</html>

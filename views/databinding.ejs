@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title><%= title%></title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title><%= title%></title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.12/css/jquery.dataTables.min.css">
+    <link rel="stylesheet" href="../css/City-information.css">
+
+    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    <script type="text/javascript" src="https://cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js"></script>
+
+</head>
+<body>
+<% include navbar.ejs%>
+<div class="wrapper1">
+    <table  class="table table-responsive table-bordered table-hover" id="comp1">
+        <tbody>
+        <tr>
+
+            <th >City Name</th>
+            <td > <%=data.g%></td>
+
+        </tr>
+        <tr><th colspan="3">CRIME <a> <span class="glyphicon glyphicon-question-sign" data-toggle="modal" data-target="#myModal"></span></a>
+
+                <!-- Modal -->
+                <div id="myModal" class="modal fade" role="dialog">
+                    <div class="modal-dialog">
+
+                        <!-- Modal content-->
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                <h3 class="modal-title"><strong>Understanding these indices</strong></h3>
+                            </div>
+                            <div class="modal-body">
+                                <h4><strong><u>Crime factors:</u></strong></h4> <p>(Crime factors such as Property crime, Violent crime and Crime Increasing in the Past 3 years) It is a value ranges from -2 to +2, where -2 having meaning of strongly negative and +2 meaning of strongly positive.</p><ul><li>Crime levels lower than -1 as being "Very Low".</li><li>Between -1 to -0 as being "Low"</li><li>Between -0 to 0 as being "Moderate".</li><li>Between 0 to 1 as being "High". Finally, greater than 1 means crime levels "Very high".</li></ul>
+                                <br>
+                                <h4><strong><u>Crime Index:</u></strong></h4><p>Crime Index is an estimation of overall level of crime in a given city. It is a value from 0(low) to 100(high) making it easier to read.</p><ul><li>Crime levels lower than 20 as very low.</li><li>Crime levels lower than 20 and 40 as being low.</li><li>Crime levels between 40 and 60 as being moderate.</li><li>Crime levels between 60 and 80 as being high and finally crime levels higher than 80 as being very high.</li></ul>
+                                <br>
+                                <h4><strong><u>Safety Index:</u></strong></h4><p>Safety index is, on the other way, quite opposite of crime index. If the city has a high safety index, it is considered very safe.</p>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                            </div>
+                        </div>
+
+                    </div>
+                </div></th></tr>
+        <tr>
+
+            <th>Property Crime</th>
+            <td > <%=data.h.toFixed(2)%></td>
+        </tr>
+        <tr>
+
+            <th>Violent Crime</th>
+            <td > <%=data.m.toFixed(2)%></td>
+        </tr>
+        <tr>
+
+            <th>Crime Increasing</th>
+            <td > <%=data.k.toFixed(2)%></td>
+        </tr>
+        <tr>
+
+            <th>Crime Index</th>
+            <td > <%=data.l.toFixed(2)%> </td>
+
+        </tr>
+        <tr>
+
+            <th>Safety Index</th>
+            <td > <%=data.j.toFixed(2)%></td>
+        </tr>
+        <tr><th colspan="3">HEALTH <a> <span class="glyphicon glyphicon-question-sign" data-toggle="modal" data-target="#myhealth"></span></a>
+
+                <!-- Modal -->
+                <div id="myhealth" class="modal fade" role="dialog">
+                    <div class="modal-dialog">
+
+                        <!-- Modal content-->
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                <h3 class="modal-title"><strong>Understanding Health Care Indices</strong></h3>
+                            </div>
+                            <div class="modal-body">
+                                <h4><strong><u>Health factors:</u></strong></h4> <p> Health factors describe overall quality of the health care system including equipment, cost and staff's skill and competency. It is a value ranges from -2 to +2, where -2 having meaning of strongly negative and +2 meaning of strongly positive.</p><ul><li>Health levels lower than -1 as being "Very Low".</li><li>Between -1 to -0 as being "Low"</li><li>Between -0 to 0 as being "Moderate".</li><li>Between 0 to 1 as being "High". Finally, greater than 1 means Health care quality "Very high".</li></ul>
+                                <br><h4><strong><u>Health Index:</u></strong></h4><p> It is a value from 0(low) to 100(high) making it easier to read.</p><ul><li>Health levels lower than 20 as very low.</li><li>Health levels lower than 20 and 40 as being low.</li><li>Health levels between 40 and 60 as being moderate.</li><li>Health levels between 60 and 80 as being high and finally Health levels higher than 80 as being very high.</li></ul>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                            </div>
+                        </div>
+
+                    </div>
+                </div></th></tr>
+        <tr>
+
+            <th>Health Cost</th>
+            <td > <%=data.o.toFixed(2)%></td>
+        </tr>
+        <tr>
+
+            <th>Modern Equipment</th>
+            <td > <%=data.q.toFixed(2)%></td>
+        </tr>
+        <tr>
+
+            <th>Skill and Competency</th>
+            <td > <%=data.n.toFixed(2)%></td>
+        </tr>
+        <tr>
+
+            <th>Health Index</th>
+            <td > <%=data.p.toFixed(2)%></td>
+        </tr>
+        <tr><th colspan="3">POLLUTION <a> <span class="glyphicon glyphicon-question-sign" data-toggle="modal" data-target="#pollution"></span></a>
+
+                <!-- Modal -->
+                <div id="pollution" class="modal fade" role="dialog">
+                    <div class="modal-dialog">
+
+                        <!-- Modal content-->
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                <h3 class="modal-title"><strong>Understanding Pollution indices</strong></h3>
+                            </div>
+                            <div class="modal-body">
+                                <h4><strong><u>Pollution factors:</u></strong></h4> <p> Pollution factors describe overall quality of the health care system including equipment, cost and staff's skill and competency. It is a value ranges from -2 to +2, where -2 having meaning of strongly negative and +2 meaning of strongly positive.</p><ul><li>Health levels lower than -1 as being "Very Low".</li><li>Between -1 to -0 as being "Low"</li><li>Between -0 to 0 as being "Moderate".</li><li>Between 0 to 1 as being "High". Finally, greater than 1 means Health care quality "Very high".</li></ul>
+                                <br><h4><strong><u>Pollution Index:</u></strong></h4><p>It is an estimation of the overall pollution in the city. The biggest weight is given to air pollution, than to water pollution/accessibility, two main pollution factors. Small weight is given to other pollution types. It is a value from 0(low) to 100(high) making it easier to read.</p><ul><li>Pollution levels lower than 20 as very low.</li><li>Pollution levels lower than 20 and 40 as being low.</li><li>Pollution levels between 40 and 60 as being moderate.</li><li>Pollution levels between 60 and 80 as being high and finally Pollution levels higher than 80 as being very high.</li></ul>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                            </div>
+                        </div>
+
+                    </div>
+                </div></th></tr>
+        <tr>
+
+            <th>Air Quality</th>
+            <td > <%=data.r.toFixed(2)%></td>
+        </tr>
+        <tr>
+
+            <th>Garbage Disposal Satisfaction</th>
+            <td > <%=data.s.toFixed(2)%> </td>
+        </tr>
+        <tr>
+
+            <th>Water Pollution</th>
+            <td > <%=data.v.toFixed(2)%></td>
+        </tr>
+        <tr>
+
+            <th>Drinking Water Quality Accessibility</th>
+            <td > <%=data.u.toFixed(2)%></td>
+        </tr>
+        <tr>
+
+            <th>Pollution Index</th>
+            <td > <%=data.t.toFixed(2)%> </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+</body>
+</html>

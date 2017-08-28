@@ -1,0 +1,34 @@
+html {
+    background: url("../images/page-3.jpg") no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+@media screen and (max-width: 600px) {
+    table {width:100%;}
+    thead {display: none;}
+    tr:nth-of-type(2n) {background-color: inherit;}
+    tr td:first-child {background: #f0f0f0; font-weight:bold;font-size:1.3em;}
+    tbody td {display: block;  text-align:center;}
+    tbody td:before {
+        content: attr(data-th);
+        display: block;
+        text-align:center;
+    }
+}
+
+.wrapper{
+    background-color: rgb(255, 255, 255);
+margin: 0px 8%;
+width: auto;
+    float: left;
+    padding: 2% 2%;
+}
+
+#ranking-table td, #ranking-table th{
+    text-align: center;
+}
+#United_states_ranking-table td, #United_states_ranking-table th{
+    text-align: center;
+}

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<head>
+    <title><%= title %></title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+   <!-- <link rel ="stylesheet" href="http://cdn.datatables.net/1.10.12/css/jquery.dataTables.min.css"> !-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/compare_cities.css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+    <script type ='text/javascript' src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script type ='text/javascript' src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <!--<script type ='text/javascript'  src="http://cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js"></script> -->
+</head>
+
+
+    <script>
+    $(document).ready(function () {
+
+        $('#dd1').change(function () {
+
+            var str = $(this).find("option:selected").text();
+            $("#dd2 option").each(function (i) {
+                if ($(this).text() == str) { $(this).remove(); }
+            });
+
+        });
+    });
+</script>
+<body>
+<% include navbar.ejs%>
+<div class ="content">
+    <p class="title">Compare Cities</p>
+<form method="get" action="/Comparison">
+
+      <select name=city1 id="dd1" class="form-control dropdown" required>
+
+          <option class="disabled "value="">-</option>
+          <% for(var i=0; i<data.length; i++){%>
+          <option value="<%=data[i].name%>"><%=data[i].name%></option>
+          <%}%>
+      </select>
+
+      <select name="city2" id="dd2" class="form-control dropdown" required>
+
+          <option value="">-</option>
+          <% for( i=0; i<data.length; i++){%>
+          <option value="<%=data[i].name%>"><%= data[i].name%></option>
+
+          <%}%>
+      </select>
+    <br>
+    <button type="submit" id="submitBtn" >Compare</button>
+</form>
+
+<br>
+<p id="error"></p>
+</div>
+</body>
+
+</html>

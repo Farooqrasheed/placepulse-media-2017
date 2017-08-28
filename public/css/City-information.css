@@ -1,0 +1,38 @@
+html {
+    background: url("../images/Pic_02332.jpg") no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    position: relative;
+}
+
+.wrapper1{
+    background-color: rgb(255, 255, 255);
+    /*margin: 0px 8%;*/
+    width: 600px;
+    margin: 50px 26.5%;
+    /*max-width: 1000px;*/
+    float: left;
+    padding: 2% 2%;
+    /*padding: 2% 2%;*/
+}
+@media screen and (max-width: 600px) {
+    table {width:100%;}
+    thead {display: none;}
+    tr:nth-of-type(2n) {background-color: inherit;}
+    tr td:first-child {background: #f0f0f0; font-weight:bold;font-size:1.3em;}
+    tbody td {display: block;  text-align:center;}
+    tbody td:before {
+        content: attr(data-th);
+        display: block;
+        text-align:center;
+    }
+}
+
+#comp1 th,td{
+    text-align: center;
+    margin: 0px 25%;
+    border-bottom: 1px solid #ddd;
+}
+

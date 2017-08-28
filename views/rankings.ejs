@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title><%= title %></title>
+
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.12/css/jquery.dataTables.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="../css/cities_ranking.css">
+
+    <script type="text/javascript" src="https://cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+
+<!-- Bootstr
+
+    <!-- Page-Level Demo Scripts - Tables - Use for reference -->
+    <script>
+        $(document).ready(function() {
+            $('#United_states_ranking-table').DataTable();
+        });
+    </script>
+
+</head>
+
+<body>
+<% include navbar.ejs%>
+<div class="wrapper">
+<table class="table table-striped table-bordered table-hover" id="United_states_ranking-table">
+                            <thead>
+                            <tr>
+                                <th>City Name</th>
+                                <th>Population</th>
+                                <th>Violent Crime<sup>1</sup></th>
+                                <th>Health Cost<sup>2</sup></th>
+                                <th>Cost of living<sup>3</sup></th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <% for(var i=0; i<data.length; i++){%>
+                            <tr>
+                                <td><%= data[i].City_Name%></td>
+                                <td><%= data[i].population%></td>
+                                <td><%= data[i].Violent_crime%></td>
+                                <td><%= data[i].Health_Cost%></td>
+                                <td><%= data[i].Overall%></td>
+                            </tr>
+                            <%}%>
+                            </tbody>
+                        </table>
+    <br>
+    <p> 1: <strong>Violent Crime:</strong> It is the value from index 0(low) to 100(high) as compared with USA average. Violent crime is composed of four offenses: murder and nonnegligent manslaughter, forcible rape, robbery, and aggravated assault. This is relative to US average violent crime.</p>
+    <p> 2: <strong>Health cost:</strong> It is defined on the scale from 0 to 100 as compared with USA average. Greater than 100 means "more expensive" than National(US).</p>
+    <p> 3: <strong>Overall:<strong></strong></strong> It is the value from scale 0 to 100 based on USA average 100. If the value is less than 100, it means it is <strong>"Cheaper"</strong>. If value exceeds 100, It means it is more <strong>"Expensive"</strong>    . It is calculated from the total of all categories, assigned weightages to factors i.e (housing(30%), transportation(10%), food and groceries (15%), utilities (6%), health care (7%) and miscellaneous expenses such as clothing, services and entertainment(32%). State and local taxes  are not included in any category.</State> etc as defined by our sources.</p>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,84 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title><%= title %></title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.12/css/jquery.dataTables.min.css">
+    <link rel="stylesheet" href="../css/cities_ranking.css">
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    <script type="text/javascript" src="https://cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js"></script>
+    <!-- Page-Level Demo Scripts - Tables - Use for reference -->
+    <script>
+        $(document).ready(function() {
+            $('#ranking-table').DataTable();
+        });
+    </script>
+
+</head>
+
+
+<body>
+<%include navbar.ejs%>
+<div class="wrapper">
+<table class="table table-bordered table-hover" id="ranking-table">
+    <thead>
+    <tr>
+
+        <th>City Name</th>
+        <th>Crime Index<sup>1</sup></th>
+        <th>Safety Index<sup>2</sup></th>
+        <th>Quality of Life Index<sup>3</sup></th>
+        <th>Health care Index<sup>4</sup></th>
+        <th>Consumer Price Index<sup>5</sup></th>
+        <th>Traffic Index<sup>6</sup></th>
+        <th>Pollution Index<sup>7</sup></th>
+        <th>Rent Index<sup>8</sup></th>
+        <th>Groceries Index<sup>9</sup></th>
+
+    </tr>
+    </thead>
+    <tbody>
+    <% for(var i=0; i<data.length; i++){%>
+    <tr>
+        <td><%= data[i].name%></td>
+        <td><%= data[i].crime_index.toFixed(2)%></td>
+        <td><%= data[i].safety_index.toFixed(2)%></td>
+        <td><%= data[i].quality_of_life_index.toFixed(2)%></td>
+        <td><%= data[i].health_care_index.toFixed(2)%></td>
+        <td><%= data[i].cpi_index.toFixed(2)%></td>
+        <td><%= data[i].traffic_index.toFixed(2)%></td>
+        <td><%= data[i].pollution_index.toFixed(2)%></td>
+        <td><%= data[i].rent_index.toFixed(2)%></td>
+        <td><%= data[i].groceries_index.toFixed(2)%></td>
+
+    </tr>
+    <%}%>
+    </tbody>
+</table>
+
+<br><br>
+    <p>These indices are relative to <strong>New York City (NYC)</strong>. Which means that for New York City, each index should be 100(%). If another city has, for example, rent index of 120, it means rents in average in that city are 20% more expensive than in New York City</p>
+    <p> 1: <strong>Crime Index</strong> is an estimation of overall level of crime in a given city. If crime levels lower than 20 as very low, crime levels between 20 and 40 as being low, crime levels between 40 and 60 as being moderate, crime levels between 60 and 80 as being high and finally crime levels higher than 80 as being very high.
+  </p>
+    <p> 2: <strong>Safety index</strong> is quite opposite of crime index. If the city has a high safety index, it is considered very safe.</p>
+    <p> 3: <strong>Quality of Life Index</strong> (higher is better) is an estimation of overall quality of life. it is comprised on factors such as pollution index (lower is better), house price to income ratio (lower is better), cost of living index (lower is better), safety index (higher is better), health care index (higher is better).</p>
+    <p> 4: <strong>Health Index</strong> describe overall quality of the health care system including equipment, cost and staff's skill and competency. Higher is better.</p>
+    <p> 5: <strong>Cost of Living Index</strong> is an estimation of consumer goods prices comparing to New York City as 100.</p>
+    <p> 6: <strong>Traffic Index</strong> is a composite index of time consumed in traffic due to job commute, estimation of time consumption dissatisfaction, CO2 consumption estimation in traffic and overall inefficiencies in the traffic system.</p>
+    <p> 7: <strong>Pollution Index</strong> is an estimation of the overall pollution in the city. The biggest weight is given to air pollution, than to water pollution/accessibility, two main pollution factors. Small weight is given to other pollution types.</p>
+    <p> 8: <strong>Rent Index</strong> is estimation of prices of renting apartments in the city compared to New York City. If Rent index is 80, it implies that renting in that city is 80% of price in New York.</p>
+    <p> 9: <strong>Groceries Index</strong> is an estimation of grocery prices in the city compared to New York City.</p>
+    </div>
+</body>
+</html>

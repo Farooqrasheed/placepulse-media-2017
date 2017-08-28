@@ -1,0 +1,25 @@
+{
+  "name": "Project_FYP",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "start": "node ./bin/www"
+  },
+  "dependencies": {
+    "bluebird": "latest",
+    "body-parser": "~1.15.1",
+    "bootstrap": "^3.3.7",
+    "cookie-parser": "~1.4.3",
+    "datatables.net": "^1.10.12",
+    "datatables.net-bs": "^1.10.12",
+    "debug": "~2.2.0",
+    "ejs": "~2.4.1",
+    "express": "~4.13.4",
+    "jquery-validation": "^1.16.0",
+    "mongodb": "^2.2.12",
+    "mongojs": "^2.4.0",
+    "mongoose": "latest",
+    "morgan": "~1.7.0",
+    "serve-favicon": "~2.3.0"
+  }
+}

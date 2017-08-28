@@ -1,0 +1,58 @@
+body {
+    background: url("../images/page-1.jpg") no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+.content
+{
+    /*background-color: #f0ad4e;*/
+    display: table;
+    margin: auto;
+    margin-top: 7%;
+}
+
+#author{
+    margin-bottom: 20px;
+    font-size: 35px;
+}
+
+.title
+{
+    text-align: center;
+    font-family: Montserrat;
+    font-weight: bold;
+    font-size: 3em;
+    color: transparent;
+    text-shadow: 2px 2px rgba(0,0,0,0.5);
+}
+.content form{
+    display: table;
+    margin: auto;
+}
+
+.content form,.content ul{
+    height: 35px;
+    width: 329px;
+    margin-bottom: 10px;
+    align-content: center;
+}
+
+#submitBtn
+{
+    font-family: Montserrat;
+    /*text-transform: uppercase;*/
+    width: 150px;
+    height: 35px;
+    /*margin: auto;*/
+    margin-left: 25%;
+    background-color: #00B7FF;
+    border: 1px #28a4c9 solid;
+    color: white;
+    transition: 0.3s;
+}
+#submitBtn:hover{
+    background-color: #28a4c9;
+}

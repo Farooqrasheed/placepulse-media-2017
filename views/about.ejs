@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title><%= title %></title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
+<style>
+   .wrapper{
+        padding: 0px 8%;
+    }
+</style>
+</head>
+
+<body>
+    <% include navbar.ejs %>
+<div class="wrapper">
+
+    <h3><strong>Rankings</strong></h3>
+    <p>The rankings are being generated on the basis of factors i.e Cost of living,quality of life,crime,health and pollution etc. There are two types of ranking our
+        system proposes:<ul><li>Ranking of Asian cities capital.</li><li>Ranking of States of America.</li></ul>
+
+        In the ranking of cities, the captal cities of Asian countries are included. Whereas, other ranking is based on United states of America. Asian cities ranking are different from US rankings as cities cannot be compared with States and they posses different factors according to our sources.
+    </p>
+    </br></br>
+    <h3><strong>Sentiment Analysis</strong></h3>
+    <p> Our system performs sentiment analysis for Asian capital cities(currently) and United States of America. This analysis is performed periodically after 3 months.
+        Twitter is a source of online social media to fetch opinions of people. Sentiment results are generated and represented using Pie chart for better understanding.
+    </p>
+    <br><br>
+    <h3><strong>Comparison</strong></h3>
+    <p>System provides comparison of Asian cities to present the best place to live in. Cities are compared on 9 factors for the basic and better understanding.</p>
+</div>
+
+</body>
+</html>

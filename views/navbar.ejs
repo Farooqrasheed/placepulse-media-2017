@@ -1,0 +1,32 @@
+<link href="https://fonts.googleapis.com/css?family=Bungee|Montserrat" rel="stylesheet">
+<link rel="stylesheet" href="../css/navbarCss.css">
+<div class="navbar navbar-inverse navbar-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse"
+                    data-target=".navbar-collapse">
+                <span class="icon-bar"></span> <span class="icon-bar"></span> <span
+                        class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/"><%= title %></a>
+        </div>
+        <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav navbar-right">
+                <li id="home" ><a href="/">Home</a></li>
+                <!--<li id="rankings"><a href="/rankings">Rankings</a></li>-->
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown">Rankings
+                        <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="/rankings">Asian City Rankings</a></li>
+                        <li><a href="/rankings/United_States_of_America_ranking">US Rankings</a></li>
+                    </ul>
+                </li>
+                <li id="cities-comparison"><a href="/compare_cities">Cities Comparison</a></li>
+                <li id="sentiment-analysis"><a href="/sentiment-analysis">Sentiment Analysis</a></li>
+                <li id="about"><a href="/about">About</a></li>
+            </ul>
+        </div>
+        <!--/.navbar-collapse -->
+    </div>
+</div>
